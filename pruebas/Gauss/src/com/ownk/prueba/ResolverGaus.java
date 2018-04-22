@@ -20,7 +20,8 @@ public class ResolverGaus {
 		
 		for(int filas = 0;filas < cantidadFilas;filas++) {
 			for(int columnas = 0;columnas < cantidadColumnas;columnas++) {
-
+				
+//				matriz[filas][columnas] = 2;
 				matriz[filas][columnas] =  ThreadLocalRandom.current().nextInt(1, 5 + 1);
 			}	
 		}
@@ -37,26 +38,47 @@ public class ResolverGaus {
 		
 		for(int filas = 0;filas < cantidadFilas;filas++) {
 			
-			float denominador = 1;
-			
-			for(int columnas = 0;columnas < cantidadColumnas;columnas++) {
-				
-				if(filas == columnas) {
-					denominador = matriz[filas][columnas];
-				}
-			}
-			for(int columnas = 0;columnas < cantidadColumnas;columnas++) {
-				if(denominador != 0) {
-					matriz[filas][columnas] = matriz[filas][columnas]/denominador;
-				}
-			}
+//			float denominador = 1;
+//			
+//			for(int columnas = 0;columnas < cantidadColumnas;columnas++) {
+//				
+//				if(filas == columnas) {
+//					denominador = matriz[filas][columnas];
+//				}
+//			}
+//			for(int columnas = 0;columnas < cantidadColumnas;columnas++) {
+//				if(denominador != 0) {
+//					matriz[filas][columnas] = matriz[filas][columnas]/denominador;
+//				}
+//			}
 			for(int filasReduccion = (filas + 1);filasReduccion < cantidadFilas;filasReduccion++){
 				for(int columnasreduccion = filas;columnasreduccion < cantidadColumnas;columnasreduccion++){
-					matriz[filasReduccion][columnasreduccion]=(matriz[filasReduccion][columnasreduccion]*matriz[filas][columnasreduccion])+((matriz[filasReduccion][columnasreduccion]*(-1)));
+					matriz[filasReduccion][columnasreduccion]=(matriz[filasReduccion][columnasreduccion]*matriz[filas][filas])-((matriz[filas][columnasreduccion]*matriz[filasReduccion][columnasreduccion]));
 				}
 			}
 		}
 		
+//		for(int filas = (cantidadFilas-1);filas >= 0;filas--) {
+//			
+//			float denominador = 1;
+//			
+////			for(int columnas = 0;columnas < cantidadColumnas;columnas++) {
+////				
+////				if(filas == columnas) {
+////					denominador = matriz[filas][columnas];
+////				}
+////			}
+////			for(int columnas = 0;columnas < cantidadColumnas;columnas++) {
+////				if(denominador != 0) {
+////					matriz[filas][columnas] = matriz[filas][columnas]/denominador;
+////				}
+////			}
+//			for(int filasReduccion = (filas - 1);filasReduccion >= 0;filasReduccion--){
+//				for(int columnasreduccion = filas;columnasreduccion < cantidadColumnas;columnasreduccion++){
+//					matriz[filasReduccion][columnasreduccion]=(matriz[filasReduccion][columnasreduccion]*matriz[filas][filas])+((matriz[filas][columnasreduccion]*matriz[filasReduccion][columnasreduccion])*(-1));
+//				}
+//			}
+//		}
 		System.out.println("matriz de reduccion interno:");
 		
 		for(int filas = 0;filas < cantidadFilas;filas++) {
@@ -68,38 +90,6 @@ public class ResolverGaus {
 			System.out.println();
 		}
 		
-		for(int filas = cantidadFilas;filas >= 0;filas--) {
-			
-			float denominador = 1;
-			
-			for(int columnas = 0;columnas < cantidadColumnas;columnas++) {
-				
-				if(filas == columnas) {
-					denominador = matriz[filas][columnas];
-				}
-			}
-			for(int columnas = 0;columnas < cantidadColumnas;columnas++) {
-				if(denominador != 0) {
-					matriz[filas][columnas] = matriz[filas][columnas]/denominador;
-				}
-			}
-			for(int filasReduccion = (filas + 1);filasReduccion < cantidadFilas;filasReduccion++){
-				for(int columnasreduccion = filas;columnasreduccion < cantidadColumnas;columnasreduccion++){
-					matriz[filasReduccion][columnasreduccion]=(matriz[filasReduccion][columnasreduccion]*matriz[filas][columnasreduccion])+((matriz[filasReduccion][columnasreduccion]*(-1)));
-				}
-			}
-		}
-		
-		System.out.println("matriz de reduccion externo:");
-		
-		for(int filas = 0;filas < cantidadFilas;filas++) {
-			for(int columnas = 0;columnas < cantidadColumnas;columnas++) {
-				
-
-				System.out.print(String.format("%.2f", matriz[filas][columnas])+" \t\t");
-			}	
-			System.out.println();
-		}
 	}
 
 }
