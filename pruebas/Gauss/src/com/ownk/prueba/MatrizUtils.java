@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class MatrizUtils {
 	private int cantidadFilas,cantidadColumnas;
 	private List<List<Float>> matriz;
-	List<Float> nodeMatriz;
+	private List<Float> nodeMatriz;
 	private Scanner sc;
 
 	public void obtenerMatriz(){
@@ -23,32 +23,29 @@ public class MatrizUtils {
 			System.out.println("ingrese el valor para la pocision (0,"+cont+"):");
 			cont++;
 			snd = sc.nextLine();
-			if(snd != "*") {
-				//nd = new Float(snd).floatValue();
-				nodeMatriz.add(new Float(nd));
-			}else {
+			if(snd.equals("*")) {
 				temp = false;
 				matriz.add(nodeMatriz);
+			}else {
+				nd = new Float(snd).floatValue();
+				nodeMatriz.add(new Float(nd));
 			}
 		}while(temp);	
 		
 		cantidadFilas = nodeMatriz.size(); 
 		cantidadColumnas = nodeMatriz.size()+1;
 		
-//		for(int filas = 1;filas < cantidadFilas;filas++) {
-//			for(int columnas = 1;columnas < cantidadColumnas;columnas++) {
-//				System.out.println("ingrese valor para la posicion("+filas+","+columnas+"):");
-//				nodeMatriz.add(sc.nextFloat());
-//			}	
-//			matriz.add(nodeMatriz);
-//		}
-	}
-	public void pintarMatriz(float[][] matriz) {
-		for(int filas = 0;filas < cantidadFilas;filas++) {
+		for(int filas = 1;filas < cantidadFilas;filas++) {
 			for(int columnas = 0;columnas < cantidadColumnas;columnas++) {
-				System.out.print(matriz[filas][columnas]+"\t");
-			}
-			System.out.println();
+				System.out.println("ingrese el valor para la pocision ("+filas+","+columnas+"):");
+				nodeMatriz.add(sc.nextFloat());
+			}	
+			matriz.add(nodeMatriz);
+		}
+	}
+	public void pintarMatriz() {
+		for(Float ma: nodeMatriz) {
+				System.out.println(ma+" ");
 		}
 	}
 	public int getCantidadFilas() {

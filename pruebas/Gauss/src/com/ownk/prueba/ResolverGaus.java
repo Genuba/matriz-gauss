@@ -14,6 +14,7 @@ public class ResolverGaus {
 		int tamaño = 0;
 		
 		mu.obtenerMatriz();
+		mu.pintarMatriz();
 		
 //		System.out.println("matriz ingresada:");
 //		mu.pintarMatriz(matriz);
