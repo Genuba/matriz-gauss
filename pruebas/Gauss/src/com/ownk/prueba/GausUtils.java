@@ -2,16 +2,38 @@ package com.ownk.prueba;
 
 public class GausUtils {
 	
+	/**dfgsdfg
+	 * gdfgsdfg
+	 * <h1></h1>
+	 * @param matriz dfgdfgd
+	 * @param cantidadFilas sdfgdfg
+	 * @param cantidadColumn   asdfgdfg
+	 * @return dfgdfgdfg
+	 */
 	public float[][] reduccionInferior(float[][] matriz,int cantidadFilas,int cantidadColumnas){
 
 		for(int filas = 0;filas < cantidadFilas;filas++) {
 			float denominador = 1;
 			
+			/**
+			 * Recocofriensdxsasddsgñdsgldfgdfsdgdgf
+			 * dfg
+			 * dfg
+			 * sdfg
+			 * sd
+			 * fg
+			 * 
+			 */
 			for(int columnas = 0;columnas < cantidadColumnas;columnas++) {
 				if(filas == columnas) {
 					denominador = matriz[filas][columnas];
 				}
 			}
+			
+			/**
+			 * fasdasdasdgsadf
+			 * 
+			 */
 			for(int columnas = 0;columnas < cantidadColumnas;columnas++) {
 				if(filas == columnas && matriz[filas][columnas] == 0) {
 					matriz[filas][columnas] = 1;
