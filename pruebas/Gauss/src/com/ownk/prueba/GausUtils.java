@@ -72,4 +72,10 @@ public class GausUtils {
 		}
 		return matriz;
 	}
+	public void resultados(List<List<Float>> matriz,int cantidadFilas,int cantidadColumnas) {
+			for(int filas = 0;filas < cantidadFilas;filas++) {
+				List<Float> nodeMatriz = matriz.get(filas);
+				System.out.print(nodeMatriz.get((cantidadColumnas-1))+"\t");
+			}
+	}
 }
