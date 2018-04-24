@@ -27,25 +27,40 @@ public class MatrizUtils {
 				temp = false;
 				matriz.add(nodeMatriz);
 			}else {
-				nd = new Float(snd).floatValue();
-				nodeMatriz.add(new Float(nd));
+				try {
+					nd = new Float(snd).floatValue();
+					nodeMatriz.add(new Float(nd));
+				} catch (Exception e) {
+					System.out.println("ingrese solo enteros");
+					System.exit(0);
+				}
 			}
 		}while(temp);	
 		
-		cantidadFilas = nodeMatriz.size(); 
-		cantidadColumnas = nodeMatriz.size()+1;
+		cantidadFilas = nodeMatriz.size() - 1; 
+		cantidadColumnas = nodeMatriz.size();
 		
 		for(int filas = 1;filas < cantidadFilas;filas++) {
+			nodeMatriz = new ArrayList<Float>();
 			for(int columnas = 0;columnas < cantidadColumnas;columnas++) {
 				System.out.println("ingrese el valor para la pocision ("+filas+","+columnas+"):");
-				nodeMatriz.add(sc.nextFloat());
-			}	
+				try {
+					nodeMatriz.add(sc.nextFloat());
+				} catch (Exception e) {
+					System.out.println("ingrese solo enteros");
+					System.exit(0);
+				}
+			}
 			matriz.add(nodeMatriz);
 		}
 	}
 	public void pintarMatriz() {
-		for(Float ma: nodeMatriz) {
-				System.out.println(ma+" ");
+		for(int filas = 0;filas < cantidadFilas;filas++) {
+			List<Float> nodeMatriz2 = matriz.get(filas);
+			for(int columnas = 0;columnas < cantidadColumnas;columnas++) {
+				System.out.print(nodeMatriz2.get(columnas)+" ");
+			}	
+			System.out.println();
 		}
 	}
 	public int getCantidadFilas() {

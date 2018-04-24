@@ -1,6 +1,4 @@
 package com.ownk.prueba;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class ResolverGaus {
@@ -11,7 +9,6 @@ public class ResolverGaus {
 		Scanner sc = new Scanner(System.in); 
 		MatrizUtils mu = new MatrizUtils();
 		GausUtils gu = new GausUtils();
-		int tamaño = 0;
 		
 		mu.obtenerMatriz();
 		mu.pintarMatriz();
