@@ -2,12 +2,15 @@ package com.ownk.prueba;
 import java.util.List;
 
 /**
- * 
+ * Gaus utils contiene las herramientas y las operaciones 
+ * para resolver una matriz por el metodo de gaus
  * @author EroDubai
  */
 public class GausUtils {
 	/**
 	 * se encarga de hacer la reduccion inferior de gaus
+	 * remplazando los valores debajo de la diagonal de 
+	 * la matriz en 0 y la diagonal en 1
 	 * @param matriz  {@code List<List<Float>>}
 	 * @param cantidadFilas {@code int}
 	 * @param cantidadColumnas {@code int}
@@ -71,6 +74,8 @@ public class GausUtils {
 	}
 	/**
 	 * se encarga de hacer la reduccion superior de gaus
+	 * remplazando los valores sobre la diagonal de la 
+	 * matriz en 0
 	 * @param matriz {@code List<List<Float>>}
 	 * @param cantidadFilas {@code int}
 	 * @param cantidadColumnas {@code int}
