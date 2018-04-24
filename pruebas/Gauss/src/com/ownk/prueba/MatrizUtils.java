@@ -9,7 +9,7 @@ public class MatrizUtils {
 	private List<Float> nodeMatriz;
 	private Scanner sc;
 
-	public void obtenerMatriz(){
+	public List<List<Float>> obtenerMatriz(){
 		sc = new Scanner(System.in); 
 		matriz = new ArrayList<List<Float>>();
 		nodeMatriz = new ArrayList<Float>();
@@ -53,12 +53,13 @@ public class MatrizUtils {
 			}
 			matriz.add(nodeMatriz);
 		}
+		return matriz;
 	}
-	public void pintarMatriz() {
+	public void pintarMatriz(List<List<Float>> matriz) {
 		for(int filas = 0;filas < cantidadFilas;filas++) {
-			List<Float> nodeMatriz2 = matriz.get(filas);
+			List<Float> nodeMatriz = matriz.get(filas);
 			for(int columnas = 0;columnas < cantidadColumnas;columnas++) {
-				System.out.print(nodeMatriz2.get(columnas)+" ");
+				System.out.print(nodeMatriz.get(columnas)+"\t");
 			}	
 			System.out.println();
 		}

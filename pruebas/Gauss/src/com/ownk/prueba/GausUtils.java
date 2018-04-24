@@ -1,4 +1,6 @@
 package com.ownk.prueba;
+import java.util.ArrayList;
+import java.util.List;
 
 public class GausUtils {
 	
@@ -10,11 +12,11 @@ public class GausUtils {
 	 * @param cantidadColumn   asdfgdfg
 	 * @return dfgdfgdfg
 	 */
-	public float[][] reduccionInferior(float[][] matriz,int cantidadFilas,int cantidadColumnas){
+	public List<List<Float>> reduccionInferior(List<List<Float>> matriz,int cantidadFilas,int cantidadColumnas){
 
 		for(int filas = 0;filas < cantidadFilas;filas++) {
 			float denominador = 1;
-			
+			List<Float> nodeMatriz = matriz.get(filas);
 			/**
 			 * Recocofriensdxsasddsgñdsgldfgdfsdgdgf
 			 * dfg
@@ -26,7 +28,7 @@ public class GausUtils {
 			 */
 			for(int columnas = 0;columnas < cantidadColumnas;columnas++) {
 				if(filas == columnas) {
-					denominador = matriz[filas][columnas];
+					denominador = nodeMatriz.get(columnas);
 				}
 			}
 			
@@ -35,16 +37,21 @@ public class GausUtils {
 			 * 
 			 */
 			for(int columnas = 0;columnas < cantidadColumnas;columnas++) {
-				if(filas == columnas && matriz[filas][columnas] == 0) {
-					matriz[filas][columnas] = 1;
+				if(filas == columnas && nodeMatriz.get(columnas) == 0) {
+					nodeMatriz.set(columnas,new Float(1));
 				}
 				if(denominador != 0){
-					matriz[filas][columnas] = matriz[filas][columnas]/denominador;
+					float uno = nodeMatriz.get(columnas)/denominador;
+					nodeMatriz.set(columnas,uno);
 				}
 			}
 			for(int filasReduccion = (filas + 1);filasReduccion < cantidadFilas;filasReduccion++){
+				List<Float> nodeMatrizReduccion = matriz.get(filasReduccion);
 				for(int columnasreduccion = filas;columnasreduccion < cantidadColumnas;columnasreduccion++){
-					matriz[filasReduccion][columnasreduccion]=(matriz[filasReduccion][columnasreduccion]*matriz[filas][filas])-((matriz[filas][columnasreduccion]*matriz[filasReduccion][columnasreduccion]));
+					float inferior = nodeMatrizReduccion.get(columnasreduccion)*nodeMatriz.get(filas);
+					float superior = nodeMatrizReduccion.get(columnasreduccion)*nodeMatriz.get(columnasreduccion);
+					float temp = inferior - superior;
+					nodeMatrizReduccion.set(columnasreduccion,temp);
 				}
 			}
 		}
