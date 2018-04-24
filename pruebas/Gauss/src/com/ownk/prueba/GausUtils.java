@@ -1,5 +1,4 @@
 package com.ownk.prueba;
-import java.util.ArrayList;
 import java.util.List;
 
 public class GausUtils {
@@ -57,12 +56,17 @@ public class GausUtils {
 		}
 		return matriz;
 	}
-	public float[][] reduccionSuperior(float[][] matriz,int cantidadFilas,int cantidadColumnas){
+	public List<List<Float>> reduccionSuperior(List<List<Float>> matriz,int cantidadFilas,int cantidadColumnas){
 		
 		for(int filas = (cantidadFilas-1);filas >= 0;filas--) {
+			List<Float> nodeMatriz = matriz.get(filas);
 			for(int filasReduccion = (filas - 1);filasReduccion >= 0;filasReduccion--){
+				List<Float> nodeMatrizReduccion = matriz.get(filasReduccion);
 				for(int columnasreduccion = (filas - 1);columnasreduccion < cantidadColumnas;columnasreduccion++){
-					matriz[filasReduccion][columnasreduccion]=(matriz[filasReduccion][columnasreduccion]*matriz[filas][filas]*(-1))+((matriz[filas][columnasreduccion]*matriz[filasReduccion][columnasreduccion]));
+					float inferior = nodeMatrizReduccion.get(columnasreduccion)*nodeMatriz.get(filas);
+					float superior = nodeMatrizReduccion.get(columnasreduccion)*nodeMatriz.get(columnasreduccion);
+					float temp = inferior - superior;
+					nodeMatrizReduccion.set(columnasreduccion,temp);
 				}
 			}
 		}
