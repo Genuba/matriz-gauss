@@ -2,7 +2,7 @@ package com.ownk.prueba;
 import java.util.List;
 
 public class ResolverGaus {
-
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		MatrizUtils mu = new MatrizUtils();
