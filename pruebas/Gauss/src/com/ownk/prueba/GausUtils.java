@@ -2,39 +2,25 @@ package com.ownk.prueba;
 import java.util.List;
 
 public class GausUtils {
-	
-	/**dfgsdfg
-	 * gdfgsdfg
-	 * <h1></h1>
-	 * @param matriz dfgdfgd
-	 * @param cantidadFilas sdfgdfg
-	 * @param cantidadColumn   asdfgdfg
-	 * @return dfgdfgdfg
+	/**
+	 * matriz reduccion se encarga de hacer la reduccion inferior de gaus
+	 * @param matriz tipo lista de lista flotante ya que los valores se recorren dentro del objeto tipo lista y los valores flotantes
+	 * @param cantidadFilas 
+	 * @param cantidadColumnas
+	 * @return
 	 */
 	public List<List<Float>> reduccionInferior(List<List<Float>> matriz,int cantidadFilas,int cantidadColumnas){
 
 		for(int filas = 0;filas < cantidadFilas;filas++) {
 			float denominador = 1;
 			List<Float> nodeMatriz = matriz.get(filas);
-			/**
-			 * Recocofriensdxsasddsgñdsgldfgdfsdgdgf
-			 * dfg
-			 * dfg
-			 * sdfg
-			 * sd
-			 * fg
-			 * 
-			 */
+			
 			for(int columnas = 0;columnas < cantidadColumnas;columnas++) {
 				if(filas == columnas) {
 					denominador = nodeMatriz.get(columnas);
 				}
 			}
 			
-			/**
-			 * fasdasdasdgsadf
-			 * 
-			 */
 			for(int columnas = 0;columnas < cantidadColumnas;columnas++) {
 				if(filas == columnas && nodeMatriz.get(columnas) == 0) {
 					nodeMatriz.set(columnas,new Float(1));
